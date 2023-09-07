@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="styles.css">
+<title>Dropdown Menu with Buttons</title>
+<style>
+    /* styles.css */
+
+/* Dropdown container */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown button style */
+.dropbtn {
+  background-color: #3498db;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Dropdown content */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Button links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  cursor: pointer;
+}
+
+/* Change color of dropdown content links on hover */
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+</style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const dropdownBtn = document.querySelector(".dropbtn");
+      const dropdownContent = document.querySelector(".dropdown-content");
+  
+      dropdownBtn.addEventListener("click", function() {
+        dropdownContent.classList.toggle("show");
+      });
+  
+      // Close the dropdown if the user clicks outside of it
+      window.addEventListener("click", function(event) {
+        if (!event.target.matches(".dropbtn")) {
+          if (dropdownContent.classList.contains("show")) {
+            dropdownContent.classList.remove("show");
+          }
+        }
+      });
+    });
+  </script>
+  
+</head>
+<body>
+  <div class="dropdown">
+    <button class="dropbtn">Menu</button>
+    <div class="dropdown-content">
+      <a href="#">Button 1</a>
+      <a href="#">Button 2</a>
+      <a href="#">Button 3</a>
+      <!-- Add more buttons as needed -->
+    </div>
+  </div>
+</body>
+</html>
